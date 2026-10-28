@@ -226,7 +226,7 @@ export const en = {
   developer: {
     role: 'Full Stack Developer',
     about:
-      'Junior full stack developer focused on TS and React. Nice Gadgets is my portfolio project: a gadget store built end to end, from the interface to the serverless functions behind it.',
+      'Junior full-stack developer focused on TS and React. Nice Gadgets is my portfolio project: a gadget store built end-to-end, from the interface to the serverless functions behind it.',
     github: 'View GitHub',
     linkedin: 'View LinkedIn',
     highlightsTitle: 'What is inside the project',
@@ -237,7 +237,7 @@ export const en = {
       },
       {
         title: 'Works with or without a backend',
-        text: 'Supabase holds products and per-user data. Without it the app falls back to bundled JSON files.',
+        text: 'Supabase holds products and per-user data. Without it, the app falls back to bundled JSON files.',
       },
       {
         title: 'Atomic component structure',
