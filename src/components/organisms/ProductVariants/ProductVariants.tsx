@@ -68,10 +68,18 @@ export const ProductVariants = ({
       <div className={styles.actions}>
         <Button
           variant={isInCart ? 'selected' : 'primary'}
-          className={styles.addToCart}
+          className={[
+            styles.addToCart,
+            styles.cartButton,
+            isInCart && styles.cartButtonAdded,
+          ]
+            .filter(Boolean)
+            .join(' ')}
           onClick={handleCartClick}
         >
-          {isInCart ? t.card.added : t.card.addToCart}
+          {isInCart ?
+            <span className={styles.cartLabelAdded}>{t.card.added}</span>
+          : t.card.addToCart}
         </Button>
         <IconButton
           variant="favourite"
@@ -82,10 +90,16 @@ export const ProductVariants = ({
           }
           onClick={onToggleFavourite}
         >
-          <Icon
-            src={isFavourite ? favoriteFilledIcon : favoriteOutlineIcon}
-            alt={t.card.favourite}
-          />
+          <span
+            className={[styles.heart, isFavourite && styles.heartActive]
+              .filter(Boolean)
+              .join(' ')}
+          >
+            <Icon
+              src={isFavourite ? favoriteFilledIcon : favoriteOutlineIcon}
+              alt={t.card.favourite}
+            />
+          </span>
         </IconButton>
       </div>
       <ProductSpecs

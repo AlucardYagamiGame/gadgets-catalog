@@ -13,10 +13,22 @@ export const RightsPage = () => {
       <p className={styles.text}>{t.rights.trademarks}</p>
       <p className={styles.text}>{t.rights.educational}</p>
       <p className={styles.text}>
+        {t.rights.origin}{' '}
+        <a
+          className={styles.link}
+          href={DEVELOPER.teamProject}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t.rights.originLink}
+        </a>
+        .
+      </p>
+      <p className={styles.text}>
         {t.rights.contact}{' '}
         <a
           className={styles.link}
-          href={DEVELOPER.github}
+          href={DEVELOPER.project}
           target="_blank"
           rel="noreferrer"
         >

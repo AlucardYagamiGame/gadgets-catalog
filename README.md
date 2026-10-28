@@ -2,7 +2,9 @@
 
 [**Live demo**](https://gadgets-catalog-swart.vercel.app) · [Documentation](./docs)
 
-![Preview of the catalog in the dark theme](./docs/screenshots/preview.gif)
+![Preview of the catalog in the dark theme](./docs/screenshots/preview1.gif)
+
+![Preview of the catalog in the dark theme](./docs/screenshots/preview2.gif)
 
 ## Features
 
@@ -74,6 +76,22 @@ All environment variables are optional. With an empty `.env` the app uses the bu
 - Tests for filters and hooks, and end-to-end tests for checkout
 - Page titles and descriptions per route
 - A page about the developer
+
+## Origin
+
+This project started as a team project during my Mate Academy course ([fe-jul26-cherry](https://github.com/fe-jul26-cherry/product_catalog), 4 people), where I was the team lead. This repository is my personal portfolio continuation.
+
+### My contribution
+
+- Technology selection, architecture, atomic component structure, design system and UI kit
+- CI/CD, ESLint, Prettier and Husky setup, branching rules, developer documentation
+- Supabase integration and email authentication, synced with checkout
+- EN/UA language switcher and the light and dark theme redesign
+- Catalog filters, URL synchronization, favourites page
+- Burger menu, header and category card animations, AI assistant button
+- Performance: CLS fixes, faster home page load, product routing refactor to avoid remounting
+- Vercel deployment, SEO metrics, rights page
+- Jira, task distribution, daily meetings and demos
 
 ## Design
 

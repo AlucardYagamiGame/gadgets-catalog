@@ -3,7 +3,7 @@
 
 .button {
   --main-size: 18px;
-  --color-shadow: color-mix(in srgb, black 25%, transparent);
+  --color-shadow: var(--color-ai-shadow);
   --color-outline: color-mix(in srgb, #{$color-accent} 25%, transparent);
 
   display: flex;

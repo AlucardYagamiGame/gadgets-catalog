@@ -217,10 +217,10 @@
     background: linear-gradient(
       105deg,
       transparent 0%,
-      $color-primary 50%,
+      $color-btn 50%,
       transparent 100%
     );
-    opacity: 0.25;
+    opacity: 0.4;
     transform: translateX(-120%) skewX(-20deg);
     pointer-events: none;
   }

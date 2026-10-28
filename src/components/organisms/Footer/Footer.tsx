@@ -27,7 +27,7 @@ export const Footer = () => {
           aria-label={t.footer.nav}
         >
           <a
-            href={DEVELOPER.github}
+            href={DEVELOPER.project}
             target="_blank"
             rel="noreferrer"
           >

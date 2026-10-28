@@ -17,10 +17,10 @@
 }
 
 .primary {
-  background: $color-accent;
+  background: $gradient-primary;
 
   &:hover {
-    background: $color-accent-hover;
+    background: $gradient-primary-hover;
   }
 }
 

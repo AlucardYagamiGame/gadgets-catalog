@@ -224,18 +224,43 @@ export const en = {
     },
   },
   developer: {
-    title: 'Developer',
     role: 'Full Stack Developer',
-    about: 'Profile details are coming soon.',
+    about:
+      'Junior full stack developer focused on TS and React. Nice Gadgets is my portfolio project: a gadget store built end to end, from the interface to the serverless functions behind it.',
+    github: 'View GitHub',
+    linkedin: 'View LinkedIn',
+    highlightsTitle: 'What is inside the project',
+    highlights: [
+      {
+        title: 'Secrets stay on the server',
+        text: 'The AI assistant and the Nova Poshta search go through Vercel serverless functions with validation, origin checks and rate limiting, so no API key reaches the browser.',
+      },
+      {
+        title: 'Works with or without a backend',
+        text: 'Supabase holds products and per-user data. Without it the app falls back to bundled JSON files.',
+      },
+      {
+        title: 'Atomic component structure',
+        text: 'Atoms, molecules, organisms, templates and pages, with imports allowed only downwards.',
+      },
+      {
+        title: 'Typed and checked',
+        text: 'Strict TypeScript, ESLint, Prettier, Husky hooks and a GitHub Actions check on every pull request.',
+      },
+    ],
+    stackTitle: 'Tech stack',
   },
   rights: {
     title: 'Rights',
     copyright:
-      '© 2026 Nice Gadgets. All rights reserved. The source code, design and texts of this site are the property of their authors.',
+      '© 2026 Nice Gadgets. All rights reserved. The source code, design and texts of this site are the property of the project authors.',
     trademarks:
       'Apple, iPhone, iPad and other product names and logos are trademarks of their respective owners. They are used on this site for illustration only and do not imply any affiliation or endorsement.',
     educational:
       'Nice Gadgets is an educational project. It is not a real store: no orders are fulfilled and no payments are processed.',
+    origin:
+      'Nice Gadgets began as a team project. This version is a personal portfolio continuation. Team repository:',
+    originLink: 'GitHub',
     contact:
       'Questions or requests about the content of this site: reach out on',
   },
