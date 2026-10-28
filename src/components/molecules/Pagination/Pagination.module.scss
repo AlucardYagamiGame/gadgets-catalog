@@ -1,0 +1,61 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagesWrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.page {
+  @include body;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid $color-elements;
+  background: $color-surface-1;
+  color: $color-primary;
+  cursor: pointer;
+  transition: all $transition;
+
+  &:hover {
+    background: $color-elements;
+  }
+}
+
+.active,
+.active:hover {
+  background: $color-accent;
+  border-color: $color-accent;
+}
+
+:global([data-theme='light']) .active,
+:global([data-theme='light']) .active:hover {
+  color: #ffffff;
+}
+
+.arrow {
+  filter: brightness(0) invert(1);
+}
+
+:global([data-theme='light']) .arrowButton:not(:disabled) {
+  background: $color-secondary;
+}
+
+:global([data-theme='light']) .arrowButton:not(:disabled):hover {
+  background: color-mix(in srgb, $color-secondary 80%, #000);
+}
+
+:global([data-theme='light']) .arrowButton:disabled .arrow {
+  filter: var(--filter-slider-arrow);
+  opacity: 0.3;
+}

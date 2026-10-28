@@ -1,0 +1,13 @@
+@use '../../../styles/mixins' as *;
+
+.page {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.main {
+  @include container;
+
+  flex-grow: 1;
+}

@@ -1,0 +1,52 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.filters {
+  @include button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  background: $color-surface-2;
+  color: $color-primary;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-icons;
+  }
+
+  @include tablet {
+    width: auto;
+    min-width: 176px;
+    order: 3;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: $color-accent;
+  color: $color-btn;
+  font: 600 12px/20px $font-family;
+}

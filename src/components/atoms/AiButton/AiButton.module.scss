@@ -1,0 +1,156 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.button {
+  --main-size: 18px;
+  --color-shadow: color-mix(in srgb, black 25%, transparent);
+  --color-outline: color-mix(in srgb, #{$color-accent} 25%, transparent);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.33em 0 0.33em 0.66em;
+  border: none;
+  border-radius: calc(var(--main-size) * 100);
+  background: $color-accent;
+  box-shadow: 0 0 0.2em 0 $color-accent;
+  color: $color-btn;
+  font-family: $font-family;
+  font-size: var(--main-size);
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: 1s;
+
+  @include tablet {
+    --main-size: 22px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 3px;
+  }
+
+  span {
+    margin-right: 0.3em;
+    transition: 0.5s;
+  }
+
+  svg {
+    position: relative;
+    height: 0.8em;
+    margin-right: -0.16em;
+    fill: $color-btn;
+    transition: 0.5s;
+
+    polygon:nth-child(1) {
+      transform: translateX(-60%);
+      transition: 0.4s;
+    }
+
+    polygon:nth-child(2) {
+      transform: translateX(-30%);
+      transition: 0.5s;
+    }
+  }
+
+  &:active span {
+    text-shadow: none;
+  }
+
+  &:active svg {
+    filter: none;
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 1em 0 $color-accent;
+    transition: 0.5s;
+
+    span {
+      text-shadow: 5px 5px 5px var(--color-shadow);
+    }
+
+    svg {
+      margin-right: 0.66em;
+      filter: drop-shadow(5px 5px 2.5px var(--color-shadow));
+    }
+
+    svg polygon:nth-child(1),
+    svg polygon:nth-child(2) {
+      transform: translateX(0);
+    }
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .button:hover {
+    animation:
+      ripple 1s linear infinite,
+      colorize 1s infinite;
+
+    svg polygon:nth-child(1) {
+      animation: blink 1s infinite 0.6s;
+    }
+
+    svg polygon:nth-child(2) {
+      animation: blink 1s infinite 0.4s;
+    }
+
+    svg polygon:nth-child(3) {
+      animation: blink 1s infinite 0.2s;
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes colorize {
+  0% {
+    background: $color-accent;
+  }
+
+  50% {
+    background: $color-accent-hover;
+  }
+
+  100% {
+    background: $color-accent;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    outline: 0 solid transparent;
+    outline-offset: -0.1em;
+  }
+
+  50% {
+    outline: 0.2em solid var(--color-outline);
+    outline-offset: 0.2em;
+  }
+
+  100% {
+    outline: 0.4em solid transparent;
+    outline-offset: 0.4em;
+  }
+}

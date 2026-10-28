@@ -1,0 +1,47 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: flex;
+  max-width: 85%;
+}
+
+.text {
+  @include body;
+  margin: 0;
+  padding: 8px 12px;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.user {
+  align-self: flex-end;
+
+  .text {
+    border-radius: 12px 12px 4px 12px;
+    color: $color-btn;
+    background: $color-accent;
+  }
+}
+
+.assistant {
+  align-self: flex-start;
+
+  .text {
+    border-radius: 12px 12px 12px 4px;
+    color: $color-primary;
+    background: $color-surface-2;
+  }
+}
+
+.action {
+  align-self: center;
+  max-width: 100%;
+
+  .text {
+    @include small;
+    padding: 4px 8px;
+    color: $color-secondary;
+    text-align: center;
+  }
+}

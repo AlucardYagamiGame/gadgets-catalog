@@ -1,0 +1,35 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+
+.title {
+  @include h2;
+  color: $color-primary;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.text {
+  @include body;
+  color: $color-secondary;
+  margin: 0;
+}
+
+.link {
+  color: $color-accent;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

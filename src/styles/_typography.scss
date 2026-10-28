@@ -1,0 +1,54 @@
+@use 'variables' as *;
+
+@mixin h1 {
+  font: 700 32px/41px $font-family;
+  letter-spacing: -0.01em;
+  @media (min-width: 640px) {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+@mixin h2 {
+  font: 700 22px/31px $font-family;
+  @media (min-width: 640px) {
+    font-size: 32px;
+    line-height: 41px;
+    letter-spacing: -0.01em;
+  }
+}
+
+@mixin h3 {
+  font: 600 20px/26px $font-family;
+  @media (min-width: 640px) {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 31px;
+  }
+}
+
+@mixin h4 {
+  font: 600 16px/20px $font-family;
+  @media (min-width: 640px) {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+@mixin body {
+  font: 400 14px/21px $font-family;
+}
+
+@mixin button {
+  font: 600 14px/21px $font-family;
+}
+
+@mixin small {
+  font: 600 12px/15px $font-family;
+}
+
+@mixin uppercase {
+  font: 700 12px/11px $font-family;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

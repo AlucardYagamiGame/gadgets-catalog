@@ -1,0 +1,43 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+}
+
+.label {
+  @include small;
+  margin: 0 0 8px;
+  color: $color-secondary;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid $color-elements;
+}
+
+.options ~ .options {
+  margin-bottom: 32px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 48px;
+  grid-template-rows: 48px;
+  gap: 8px;
+  margin: 16px 0 32px;
+
+  .addToCart,
+  .favourite {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+
+.root {
+  --section-gap: 56px;
+  display: block;
+  padding-bottom: 64px;
+
+  > * + * {
+    margin-top: var(--section-gap);
+  }
+
+  > .title + * {
+    margin-top: 0;
+  }
+
+  @include tablet {
+    --section-gap: 64px;
+  }
+
+  @include desktop {
+    --section-gap: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.title {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  color: $color-primary;
+  text-align: left;
+  text-wrap: balance;
+  @include h1;
+
+  @include tablet {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  @include desktop {
+    margin-top: 56px;
+    margin-bottom: 56px;
+  }
+}

@@ -1,0 +1,155 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 176px;
+}
+
+.full {
+  width: 100%;
+}
+
+.description {
+  @include small;
+  color: $color-secondary;
+}
+
+.select {
+  position: relative;
+  width: 100%;
+}
+
+.control {
+  @include button;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  background: $color-surface-2;
+  color: $color-primary;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-icons;
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    border-color: transparent;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.invalid,
+.invalid:hover {
+  border-color: $color-red;
+}
+
+.focus,
+.focus:hover {
+  border-color: $color-accent;
+}
+
+.placeholder {
+  color: $color-secondary;
+}
+
+.error {
+  @include small;
+  color: $color-red;
+}
+
+.arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-right: 1.5px solid $color-primary;
+  border-bottom: 1.5px solid $color-primary;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.up {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 240px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: $color-bg;
+  border: 1px solid $color-elements;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.item {
+  @include body;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 32px;
+  padding: 0 12px;
+  border: 0;
+  background: $color-bg;
+  color: $color-secondary;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-surface-2;
+    color: $color-primary;
+  }
+}
+
+.hover {
+  background: $color-surface-2;
+  color: $color-primary;
+}
+
+.menu.menuUp {
+  top: auto;
+  bottom: calc(100% + 4px);
+}
+
+.multiline {
+  .control {
+    gap: 8px;
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .menu {
+    max-height: 280px;
+    overscroll-behavior: contain;
+
+    li + li {
+      border-top: 1px solid $color-elements;
+    }
+  }
+
+  .item {
+    height: auto;
+    min-height: 40px;
+    padding: 8px 12px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}

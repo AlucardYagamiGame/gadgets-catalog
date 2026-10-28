@@ -1,0 +1,73 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: $color-surface-1;
+
+  box-shadow: $shadow-block;
+  @include tablet {
+    flex-wrap: nowrap;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+.remove {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.image {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 80px;
+  height: 80px;
+  padding: 6px;
+  object-fit: contain;
+}
+
+.title {
+  @include body;
+  flex: 1 1 128px;
+  min-width: 0;
+  margin: 0;
+  color: $color-primary;
+
+  @include tablet {
+    flex-basis: 0;
+  }
+}
+
+.counter {
+  flex-shrink: 0;
+}
+
+.price {
+  flex-shrink: 0;
+  margin-left: auto;
+  text-align: right;
+
+  @include tablet {
+    min-width: 80px;
+  }
+}

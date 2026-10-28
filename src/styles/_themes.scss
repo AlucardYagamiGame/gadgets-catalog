@@ -1,0 +1,81 @@
+:root,
+[data-theme='dark'] {
+  --color-bg: #0f1121;
+  --color-page-bg: #0f1121;
+  --color-btn: #f1f2f9;
+  --color-surface-1: #161827;
+  --color-surface-2: #323542;
+  --color-banner-bg: #0f1121;
+  --color-elements: #3b3e4a;
+  --color-icons: #4a4d58;
+  --color-secondary: #75767f;
+  --color-primary: #f1f2f9;
+  --color-accent: #905bff;
+  --color-accent-hover: #a378ff;
+  --color-green: #27ae60;
+  --color-red: #eb5757;
+  --color-c-phones: #6d6474;
+  --color-c-tablets: #4e5b66;
+  --color-c-accessories: #803d4c;
+  --color-space-deep: #06070f;
+  --color-space-mid: #2a1458;
+  --color-space-star: #ffffff;
+  --rim-saturation: 90%;
+  --rim-lightness: 65%;
+  --color-toggle-start: #905bff;
+  --color-toggle-end: #f099b5;
+  --color-dev: #0a0c17;
+  --color-card-border: rgb(255 255 255 / 6%);
+  --shadow-card: 0 12px 32px rgb(0 0 0 / 45%);
+  --shadow-block: none;
+  --stars-opacity: 0.85;
+  --star-a: #fff;
+  --star-b: #d9c8ff;
+  --star-c: #ffd1e0;
+  --nebula-a: rgb(144 91 255 / 14%);
+  --nebula-b: rgb(240 153 181 / 9%);
+  --gradient-accent: linear-gradient(
+    135deg,
+    var(--color-toggle-start),
+    var(--color-toggle-end)
+  );
+  --filter-slider-arrow: brightness(0) invert(1);
+  --color-slider-progress: #f1f2f9;
+}
+
+[data-theme='light'] {
+  --color-bg: #ffffff;
+  --color-page-bg: #fbfbfaed;
+  --color-btn: #f1f2f9;
+  --color-surface-1: #fffdf9;
+  --color-surface-2: #e2e6e9;
+  --color-banner-bg: #ffffff;
+  --color-elements: #e2e6e9;
+  --color-icons: #b4bdc3;
+  --color-secondary: #89939a;
+  --color-primary: #0f1121;
+  --color-accent: #905bff;
+  --color-accent-hover: #a378ff;
+  --color-green: #27ae60;
+  --color-red: #eb5757;
+  --color-c-phones: #93889b;
+  --color-c-tablets: #7f8d99;
+  --color-c-accessories: #b56576;
+  --color-space-deep: #cdbff5;
+  --color-space-mid: #f6e9ff;
+  --color-space-star: #ffffff;
+  --rim-saturation: 85%;
+  --rim-lightness: 74%;
+  --color-toggle-start: #f19af3;
+  --color-toggle-end: #f099b5;
+  --color-dev: #e6e8f2;
+  --color-card-border: transparent;
+  --shadow-card: 0 1px 2px rgb(15 17 33 / 6%), 0 12px 32px rgb(15 17 33 / 10%);
+  --shadow-block: 0 1px 2px rgb(15 17 33 / 7%), 0 4px 14px rgb(15 17 33 / 6%);
+  --stars-opacity: 1;
+  --nebula-a: rgb(144 91 255 / 10%);
+  --nebula-b: transparent;
+  --gradient-accent: linear-gradient(135deg, #905bff, #c77ddf);
+  --filter-slider-arrow: brightness(0);
+  --color-slider-progress: #555555;
+}

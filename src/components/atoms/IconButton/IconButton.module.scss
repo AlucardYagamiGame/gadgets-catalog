@@ -1,0 +1,47 @@
+@use '../../../styles/variables' as *;
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.slider {
+  width: 32px;
+  height: 32px;
+  background: $color-surface-2;
+
+  &:hover {
+    background: $color-icons;
+  }
+
+  &:disabled {
+    background: transparent;
+    border: 1px solid $color-elements;
+    cursor: not-allowed;
+  }
+}
+
+.favourite {
+  width: 40px;
+  height: 40px;
+  background: $color-surface-2;
+
+  &:hover {
+    background: $color-icons;
+  }
+}
+
+.added {
+  background: transparent;
+  border: 1px solid $color-elements;
+
+  &:hover {
+    background: transparent;
+  }
+}

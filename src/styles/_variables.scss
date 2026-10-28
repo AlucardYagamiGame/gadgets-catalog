@@ -1,0 +1,50 @@
+$color-bg: var(--color-bg);
+$color-page-bg: var(--color-page-bg);
+$color-btn: var(--color-btn);
+$color-surface-1: var(--color-surface-1);
+$color-surface-2: var(--color-surface-2);
+$color-banner-bg: var(--color-banner-bg);
+$color-elements: var(--color-elements);
+$color-icons: var(--color-icons);
+$color-secondary: var(--color-secondary);
+$color-primary: var(--color-primary);
+$color-accent: var(--color-accent);
+$color-accent-hover: var(--color-accent-hover);
+$color-green: var(--color-green);
+$color-red: var(--color-red);
+$color-dev: var(--color-dev);
+$shadow-card: var(--shadow-card);
+$shadow-block: var(--shadow-block);
+$gradient-accent: var(--gradient-accent);
+$color-toggle-start: var(--color-toggle-start);
+$color-toggle-end: var(--color-toggle-end);
+$color-slider-progress: var(--color-slider-progress);
+
+$color-category-phones: var(--color-c-phones);
+$color-category-tablets: var(--color-c-tablets);
+$color-category-accessories: var(--color-c-accessories);
+
+$color-space-deep: var(--color-space-deep);
+$color-space-mid: var(--color-space-mid);
+$color-space-star: var(--color-space-star);
+
+$filter-accent: brightness(0) saturate(100%) invert(30%) sepia(23%)
+  saturate(3254%) hue-rotate(229deg) brightness(140%) contrast(118%);
+
+$font-family: 'Mont', sans-serif;
+
+$bp-tablet: 640px;
+$bp-desktop: 1200px;
+$bp-wide: 1440px;
+
+$grid-gap: 16px;
+$container-max: 1440px;
+
+$header-height-mobile: 48px;
+$header-height: 64px;
+
+$transition: 0.3s ease;
+
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;

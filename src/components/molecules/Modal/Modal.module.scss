@@ -1,0 +1,99 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+:global(body):has(.root[open]) {
+  overflow: hidden;
+}
+
+.root {
+  width: calc(100% - 32px);
+  max-width: 560px;
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid $color-elements;
+  overflow-y: auto;
+  color: $color-primary;
+  background: $color-surface-1;
+  box-shadow: $shadow-card;
+
+  &::backdrop {
+    background: $color-bg;
+    opacity: 0.8;
+  }
+}
+
+.wide {
+  @include tablet {
+    max-width: 720px;
+  }
+
+  @include desktop {
+    width: calc(100% - 64px);
+    max-width: 1136px;
+
+    .panel {
+      padding: clamp(32px, 4vw, 56px);
+    }
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+
+  @include tablet {
+    padding: 32px;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.title {
+  @include h3;
+  margin: 0;
+}
+
+.close {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.compact {
+  max-width: 384px;
+  border-radius: 12px;
+
+  .header {
+    position: relative;
+    justify-content: center;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .close {
+    position: absolute;
+    right: 0;
+  }
+}

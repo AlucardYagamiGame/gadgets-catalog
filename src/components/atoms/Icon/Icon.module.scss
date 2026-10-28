@@ -1,0 +1,33 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.sm {
+  width: 16px;
+  height: 16px;
+
+  @include tablet {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include wide {
+    opacity: 0.7;
+  }
+}
+
+.lg {
+  width: 28px;
+  height: 28px;
+}
+
+.xl {
+  width: 32px;
+  height: 32px;
+}

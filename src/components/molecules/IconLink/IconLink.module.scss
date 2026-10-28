@@ -1,0 +1,14 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: block;
+  position: relative;
+}
+
+.counter {
+  position: absolute;
+  top: 12px;
+  left: calc(50% + 2px);
+}

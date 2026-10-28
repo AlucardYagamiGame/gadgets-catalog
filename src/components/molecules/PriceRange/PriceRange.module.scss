@@ -1,0 +1,146 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+$thumb-size: 18px;
+
+@mixin thumb {
+  box-sizing: border-box;
+  width: $thumb-size;
+  height: $thumb-size;
+  border: 2px solid $color-bg;
+  border-radius: 50%;
+  background: $color-accent;
+  box-shadow: 0 0 10px color-mix(in srgb, $color-accent 50%, transparent);
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  @include button;
+  color: $color-primary;
+}
+
+.slider {
+  position: relative;
+  height: $thumb-size;
+  margin-inline: calc($thumb-size / 2);
+}
+
+.track,
+.fill {
+  position: absolute;
+  top: 50%;
+  height: 6px;
+  border-radius: 8px;
+  transform: translateY(-50%);
+}
+
+.track {
+  left: calc($thumb-size / -2);
+  right: calc($thumb-size / -2);
+  background: $color-elements;
+}
+
+.fill {
+  left: var(--from);
+  right: calc(100% - var(--to));
+  background: $color-accent;
+}
+
+.thumb {
+  position: absolute;
+  inset: 0 calc($thumb-size / -2);
+  width: calc(100% + $thumb-size);
+  height: $thumb-size;
+  margin: 0;
+  background: transparent;
+  appearance: none;
+  pointer-events: none;
+
+  &::-webkit-slider-runnable-track {
+    height: $thumb-size;
+    background: transparent;
+  }
+
+  &::-moz-range-track {
+    height: $thumb-size;
+    background: transparent;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+    appearance: none;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &:active::-webkit-slider-thumb {
+    cursor: grabbing;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::-webkit-slider-thumb {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+
+    &::-moz-range-thumb {
+      outline: 2px solid $color-primary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+.values {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.value {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 6px 8px 8px;
+  border: 1px solid $color-elements;
+  border-radius: 8px;
+  background: $color-bg;
+}
+
+.valueLabel {
+  @include small;
+  color: $color-secondary;
+}
+
+.valueText {
+  @include button;
+  color: $color-primary;
+  white-space: nowrap;
+}
+
+.dash {
+  flex-shrink: 0;
+  width: 12px;
+  height: 1px;
+  background: $color-secondary;
+}

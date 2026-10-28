@@ -1,0 +1,38 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.link {
+  @include small;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: $color-primary;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  span {
+    line-height: 1;
+    position: relative;
+    top: 1px;
+  }
+}
+
+.icon {
+  filter: brightness(0) invert(1);
+  transition: filter $transition;
+}
+
+:global([data-theme='light']) .icon {
+  filter: var(--filter-slider-arrow);
+}
+
+.link:hover .icon {
+  filter: $filter-accent;
+}

@@ -1,0 +1,72 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 21px;
+  border: 1px solid var(--color-card-border, #{$color-elements});
+  border-radius: 12px;
+  background: $color-surface-1;
+  box-shadow: $shadow-block;
+}
+
+.plain {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 13px;
+}
+
+.title {
+  @include h3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $color-primary;
+}
+
+.reset {
+  @include uppercase;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: $color-accent;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover:not(:disabled) {
+    color: $color-accent-hover;
+  }
+
+  &:disabled {
+    color: $color-secondary;
+    cursor: default;
+  }
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chips,
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swatches {
+  gap: 10px;
+}

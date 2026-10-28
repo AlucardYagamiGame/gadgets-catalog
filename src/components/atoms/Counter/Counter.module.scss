@@ -1,0 +1,18 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  @include small;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 4px;
+  border-radius: 7px;
+  background: $color-red;
+  color: $color-btn;
+  font-size: 9px;
+  line-height: 1;
+}

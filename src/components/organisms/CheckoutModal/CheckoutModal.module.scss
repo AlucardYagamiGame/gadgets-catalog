@@ -1,0 +1,151 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+    align-items: stretch;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.deliveryGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.rightTop {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include tablet {
+    margin-top: 22px;
+  }
+}
+
+.rightBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.legend {
+  @include small;
+  padding: 0;
+  margin: 0;
+  color: $color-secondary;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $color-elements;
+  background: $color-bg;
+  transition: border-color $transition;
+
+  &.optionActive {
+    border-color: $color-accent;
+  }
+}
+
+.optionHeader {
+  @include body;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.optionBody {
+  padding: 0 16px 16px 16px;
+}
+
+.radio {
+  flex-shrink: 0;
+  margin: 0;
+  accent-color: $color-accent;
+}
+
+.summary {
+  margin-bottom: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-elements;
+  text-align: center;
+}
+
+.total {
+  @include h2;
+}
+
+.count {
+  @include body;
+  color: $color-secondary;
+}
+
+.submit {
+  width: 100%;
+  height: 48px;
+}
+
+.cancel {
+  @include body;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 4px 8px;
+  border: 0;
+  color: $color-secondary;
+  background: transparent;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-hover;
+  }
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.successText {
+  @include h4;
+  text-align: center;
+}

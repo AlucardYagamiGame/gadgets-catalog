@@ -1,0 +1,28 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: grid;
+  align-content: start;
+  gap: 24px;
+
+  dt {
+    @include body;
+    color: $color-secondary;
+  }
+
+  dd {
+    @include body;
+    color: $color-primary;
+    text-align: right;
+  }
+}
+
+.title {
+  @include h3;
+  margin: 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $color-elements;
+  color: $color-primary;
+}

@@ -1,0 +1,90 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  @include small;
+  color: $color-secondary;
+}
+
+.input {
+  @include body;
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid $color-elements;
+  color: $color-primary;
+  background: $color-bg;
+  transition: border-color $transition;
+
+  &:focus {
+    border-color: $color-accent;
+    outline: none;
+  }
+
+  &[aria-invalid='true'] {
+    border-color: $color-red;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-height: 240px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: $color-bg;
+  border: 1px solid $color-elements;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.05);
+}
+
+.item,
+.message {
+  @include body;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 0;
+  background: $color-bg;
+  color: $color-secondary;
+  text-align: left;
+}
+
+.item {
+  cursor: pointer;
+
+  &:hover {
+    background: $color-surface-2;
+    color: $color-primary;
+  }
+}
+
+.active {
+  background: $color-surface-2;
+  color: $color-primary;
+}
+
+.error {
+  @include small;
+  color: $color-red;
+}

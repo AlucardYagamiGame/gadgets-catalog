@@ -1,0 +1,44 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: inline-flex;
+  align-items: center;
+}
+
+.button {
+  @include body;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid $color-surface-2;
+  background-color: transparent;
+  color: $color-primary;
+  cursor: pointer;
+  transition:
+    border-color $transition,
+    opacity $transition;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.value {
+  @include body;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  color: $color-primary;
+  text-align: center;
+}

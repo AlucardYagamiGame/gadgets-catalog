@@ -1,0 +1,126 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  position: relative;
+  width: 100%;
+  height: 40px;
+
+  &:hover {
+    background: $color-surface-1;
+  }
+}
+
+.completion {
+  @include body;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 10px 8px;
+  overflow: hidden;
+  white-space: pre;
+  pointer-events: none;
+}
+
+.completionSuffix {
+  color: $color-secondary;
+}
+
+.input {
+  @include body;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 40px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: $color-primary;
+  -webkit-text-fill-color: transparent;
+  appearance: none;
+  transition: background $transition;
+
+  &::selection {
+    color: $color-primary;
+    background: $color-surface-2;
+    -webkit-text-fill-color: $color-primary;
+  }
+
+  &::placeholder {
+    color: $color-secondary;
+    -webkit-text-fill-color: $color-secondary;
+  }
+
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-decoration {
+    appearance: none;
+  }
+
+  &:hover {
+    background: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  width: 100%;
+  max-height: 280px;
+  margin: 0;
+  padding: 4px 0;
+  overflow-y: auto;
+  list-style: none;
+  background: $color-bg;
+  border: 1px solid $color-elements;
+  box-shadow: $shadow-card;
+}
+
+.suggestion {
+  @include body;
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 8px;
+  border: 0;
+  color: $color-primary;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-surface-1;
+  }
+}
+
+.activeSuggestion {
+  background: $color-surface-1;
+}
+
+.suggestionError {
+  @include small;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 20;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 8px;
+  color: $color-secondary;
+  background: $color-bg;
+  border: 1px solid $color-elements;
+}

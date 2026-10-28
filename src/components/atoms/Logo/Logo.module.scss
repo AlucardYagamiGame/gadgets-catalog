@@ -1,0 +1,17 @@
+@use '../../../styles/mixins' as *;
+
+.root {
+  display: block;
+  flex-shrink: 0;
+  height: 26px;
+
+  @include tablet {
+    height: 30px;
+  }
+}
+
+.image {
+  display: block;
+  height: 100%;
+  width: auto;
+}

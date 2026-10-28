@@ -1,0 +1,190 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  color: $color-primary;
+  background: $color-surface-1;
+
+  @include tablet {
+    top: $header-height;
+    right: auto;
+    width: 360px;
+    border-right: 1px solid $color-elements;
+    box-shadow: $shadow-card;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid $color-elements;
+}
+
+.title {
+  @include h4;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.clear {
+  @include small;
+  padding: 4px 0;
+  border: 0;
+  color: $color-secondary;
+  background: transparent;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.close {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+}
+
+.list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: 12px;
+  border: 1px solid $color-red;
+}
+
+.errorText {
+  @include body;
+  margin: 0;
+}
+
+.suggestions {
+  flex-shrink: 0;
+  border-top: 1px solid $color-elements;
+}
+
+.toggle {
+  @include small;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 16px;
+  border: 0;
+  color: $color-secondary;
+  background: transparent;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-hover;
+  }
+}
+
+.chips {
+  padding: 0 16px 12px;
+}
+
+.retry {
+  width: auto;
+  height: 32px;
+  padding: 0 16px;
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid $color-elements;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid $color-elements;
+  border-radius: 4px;
+  font-family: $font-family;
+  color: $color-primary;
+  background: $color-bg;
+  transition: border-color $transition;
+  @include body;
+
+  &::placeholder {
+    color: $color-secondary;
+  }
+
+  &:focus-visible {
+    border-color: $color-accent;
+    outline: none;
+  }
+
+  &::selection {
+    color: $color-btn;
+    background: $color-accent;
+  }
+}
+
+.send {
+  flex-shrink: 0;
+  width: auto;
+  padding: 0 16px;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

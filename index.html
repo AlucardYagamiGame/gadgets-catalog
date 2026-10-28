@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <base href="/" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link
+      rel="shortcut icon"
+      href="favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="manifest"
+      href="favicon/site.webmanifest"
+    />
+    <meta
+      name="theme-color"
+      content="#0f1121"
+    />
+    <script>
+      try {
+        var saved = JSON.parse(localStorage.getItem('theme'));
+        if (saved && saved.state && saved.state.theme) {
+          document.documentElement.dataset.theme = saved.state.theme;
+        }
+      } catch (error) {}
+      try {
+        var lang = JSON.parse(localStorage.getItem('language'));
+        if (lang && lang.state && lang.state.language) {
+          document.documentElement.lang =
+            lang.state.language === 'ua' ? 'uk' : 'en';
+        }
+      } catch (error) {}
+    </script>
+    <script>
+      (function () {
+        if (location.pathname !== '/') {
+          return;
+        }
+
+        var base =
+          document.documentElement.dataset.theme === 'light' ?
+            '/img/slider/banner_phone-light'
+          : '/img/slider/banner_phone';
+        var full =
+          document.documentElement.dataset.theme === 'light' ? 1372 : 1600;
+        var link = document.createElement('link');
+
+        link.rel = 'preload';
+        link.as = 'image';
+        link.setAttribute(
+          'imagesrcset',
+          [480, 800, 1200]
+            .map(function (width) {
+              return base + '-' + width + '.webp ' + width + 'w';
+            })
+            .concat(base + '.webp ' + full + 'w')
+            .join(', '),
+        );
+        link.setAttribute(
+          'imagesizes',
+          '(min-width: 1200px) 930px, (min-width: 640px) 100vw, 134vw',
+        );
+        link.setAttribute('fetchpriority', 'high');
+        document.head.appendChild(link);
+      })();
+    </script>
+    <link
+      rel="preconnect"
+      href="%VITE_SUPABASE_URL%"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Mont-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Mont-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <title>Nice Gadgets: phones, tablets and accessories</title>
+    <meta
+      name="description"
+      content="Nice Gadgets is an online catalog of phones, tablets and accessories with sorting, filters, search, a cart and favourites."
+    />
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:title"
+      content="Nice Gadgets: phones, tablets and accessories"
+    />
+    <meta
+      property="og:description"
+      content="Browse phones, tablets and accessories, compare specs and add your favourites to the cart."
+    />
+    <meta
+      property="og:image"
+      content="favicon/apple-touch-icon.png"
+    />
+    <style>
+      html {
+        background: var(--color-bg, #0f1121);
+      }
+
+      .app-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .app-loader-dot {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background: var(--color-accent, #905bff);
+        animation: app-loader-jump 0.5s cubic-bezier(0.77, 0.47, 0.64, 0.28)
+          alternate infinite;
+      }
+
+      .app-loader-dot:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .app-loader-dot:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      .app-loader-error {
+        flex-direction: column;
+        gap: 16px;
+        color: var(--color-primary, #f1f2f9);
+        font-family: sans-serif;
+      }
+
+      @keyframes app-loader-jump {
+        to {
+          transform: translateY(-15px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .app-loader-dot {
+          animation: app-loader-pulse 1s ease-in-out alternate infinite;
+        }
+
+        .app-loader-dot:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        .app-loader-dot:nth-child(3) {
+          animation-delay: 0.4s;
+        }
+
+        @keyframes app-loader-pulse {
+          to {
+            opacity: 0.25;
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div
+        class="app-loader"
+        role="status"
+        aria-label="Loading"
+      >
+        <span class="app-loader-dot"></span>
+        <span class="app-loader-dot"></span>
+        <span class="app-loader-dot"></span>
+      </div>
+    </div>
+    <noscript>Please enable JavaScript to use this site.</noscript>
+    <script>
+      (function () {
+        var root = document.getElementById('root');
+
+        function fail(reason) {
+          if (!root.querySelector('.app-loader')) {
+            return;
+          }
+
+          root.innerHTML =
+            '<div class="app-loader app-loader-error" role="alert"><p></p><button type="button">Reload</button></div>';
+          root.querySelector('p').textContent =
+            'The app failed to load: ' + reason;
+          root.querySelector('button').onclick = function () {
+            location.reload();
+          };
+        }
+
+        window.addEventListener(
+          'error',
+          function (event) {
+            var target = event.target;
+
+            if (target && target.tagName === 'SCRIPT') {
+              fail(target.src);
+            } else if (event.message) {
+              fail(event.message);
+            }
+          },
+          true,
+        );
+        window.addEventListener('unhandledrejection', function (event) {
+          fail(String(event.reason));
+        });
+        setTimeout(function () {
+          fail('timeout');
+        }, 20000);
+      })();
+    </script>
+    <script
+      type="module"
+      src="/src/main.tsx"
+    ></script>
+  </body>
+</html>

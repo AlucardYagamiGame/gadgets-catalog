@@ -1,0 +1,299 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+$action-width: clamp(44px, calc(44px + (100vw - 640px) * 0.2), 64px);
+
+.root {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: $color-bg;
+  border-bottom: 1px solid $color-elements;
+}
+
+.bar {
+  width: 100%;
+  padding: 0 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: $header-height-mobile;
+
+  @include tablet {
+    min-height: $header-height;
+  }
+
+  &.barUa {
+    @include desktop {
+      .search {
+        flex-basis: 600px;
+      }
+    }
+  }
+}
+
+.left {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @include tablet {
+    gap: 12px;
+  }
+
+  @include desktop {
+    gap: 40px;
+  }
+}
+
+.search {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+    flex: 0 1 650px;
+    align-self: center;
+    min-width: 180px;
+    margin-left: 32px;
+    transition: flex-basis 0.3s ease;
+  }
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.searchBar {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  background: $color-bg;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.searchField {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-self: center;
+  align-items: center;
+  box-sizing: border-box;
+  height: 42px;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-bottom-color: $color-elements;
+
+  &::after {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $color-accent;
+    content: '';
+    pointer-events: none;
+  }
+
+  &:focus-within::after {
+    animation: search-underline 600ms ease forwards;
+  }
+}
+
+.searchField > :first-child {
+  flex: 1;
+  min-width: 0;
+}
+
+:global([data-theme='light']) .searchField {
+  border-color: $color-elements;
+}
+
+.searchSubmit {
+  display: flex;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: background $transition;
+
+  &:hover {
+    background: $color-surface-1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: -2px;
+  }
+}
+
+@keyframes search-underline {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: calc(100% - 40px);
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+.searchClose {
+  display: flex;
+  flex: 0 0 $header-height-mobile;
+  align-items: center;
+  justify-content: center;
+  width: $header-height-mobile;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid $color-elements;
+  background: transparent;
+  cursor: pointer;
+
+  @include tablet {
+    flex-basis: $header-height;
+    width: $header-height;
+  }
+}
+
+.nav {
+  display: none;
+
+  @include tablet {
+    display: flex;
+    align-self: stretch;
+    align-items: stretch;
+    gap: clamp(8px, calc(8px + (100vw - 640px) * 0.05), 24px);
+  }
+
+  @include desktop {
+    gap: 32px;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 8px;
+  margin-right: $header-height-mobile;
+  margin-left: auto;
+
+  @include tablet {
+    gap: 6px;
+    margin-right: calc(#{$action-width} * 2 - 8px);
+  }
+
+  .barAccount & {
+    @include tablet {
+      margin-right: calc(#{$action-width} * 3 - 8px);
+    }
+  }
+}
+
+.actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+}
+
+.actions > a {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: $header-height-mobile;
+  border-left: 1px solid $color-elements;
+
+  @include tablet {
+    display: flex;
+    width: $action-width;
+  }
+}
+
+.actions > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $header-height-mobile;
+  border-left: 1px solid $color-elements;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.actions > .accountCell {
+  position: relative;
+  display: none;
+  padding: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+
+  @include tablet {
+    display: flex;
+    width: $action-width;
+  }
+}
+
+.accountActive::after {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: calc(50% + 8px);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $color-green;
+}
+
+.burger {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: $color-primary;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}

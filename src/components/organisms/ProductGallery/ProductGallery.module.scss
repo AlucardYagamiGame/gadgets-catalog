@@ -1,0 +1,96 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    'main'
+    'thumbs';
+  align-items: start;
+  gap: 16px;
+
+  @include tablet {
+    grid-template-columns: 35px minmax(0, 1fr);
+    grid-template-areas: 'thumbs main';
+  }
+
+  @include desktop {
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+}
+
+.main {
+  grid-area: main;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 7px;
+  object-fit: contain;
+
+  @include desktop {
+    padding: 11px;
+  }
+}
+
+.thumbs {
+  grid-area: thumbs;
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    flex: 1 1 0;
+
+    @include tablet {
+      flex: none;
+    }
+  }
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include desktop {
+    gap: 16px;
+  }
+}
+
+.thumb {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 49px;
+  padding: 4px;
+  border: 1px solid $color-elements;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color $transition;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover,
+  &.active {
+    border-color: $color-primary;
+  }
+
+  @include tablet {
+    width: 35px;
+    height: 35px;
+    padding: 3px;
+  }
+
+  @include desktop {
+    width: 80px;
+    height: 80px;
+    padding: 7px;
+  }
+}

@@ -1,0 +1,94 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  flex-shrink: 0;
+  align-self: stretch;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid $color-elements;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.caption {
+  @include small;
+  padding: 8px;
+  color: $color-secondary;
+  text-align: left;
+  caption-side: top;
+}
+
+.corner,
+.rowLabel {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  width: 72px;
+  min-width: 72px;
+  background: $color-surface-1;
+}
+
+.rowLabel {
+  @include small;
+  padding: 8px;
+  color: $color-secondary;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+}
+
+.product {
+  min-width: 104px;
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition;
+
+  &:hover,
+  &:focus-visible {
+    color: $color-accent-hover;
+  }
+}
+
+.image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.name {
+  @include small;
+  overflow-wrap: anywhere;
+}
+
+.price {
+  @include body;
+  font-weight: 700;
+}
+
+.row {
+  border-top: 1px solid $color-elements;
+}
+
+.cell {
+  @include small;
+  padding: 8px;
+  overflow-wrap: anywhere;
+  vertical-align: top;
+}
+
+.different .cell {
+  color: $color-accent;
+}

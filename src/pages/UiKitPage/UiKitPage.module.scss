@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+@use '../../styles/typography' as *;
+
+.root {
+  @include container;
+  display: grid;
+  gap: 32px;
+  padding-block: 32px;
+}
+
+.heading {
+  @include h1;
+  margin: 0;
+  color: $color-primary;
+}
+
+.hint {
+  @include body;
+  margin: 0;
+  color: $color-secondary;
+}
+
+.specimen {
+  display: grid;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid $color-elements;
+}
+
+.title {
+  @include h3;
+  margin: 0;
+  color: $color-primary;
+}
+
+.figma {
+  @include small;
+  margin: 0;
+  color: $color-secondary;
+}
+
+.cases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.case {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.sample {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 8px;
+  border: 1px dashed $color-elements;
+}
+
+.caption {
+  @include small;
+  color: $color-secondary;
+}

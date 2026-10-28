@@ -1,0 +1,22 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+@use '../../../styles/typography' as *;
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.price {
+  @include h3;
+  color: $color-primary;
+}
+
+.fullPrice {
+  @include h3;
+  color: $color-secondary;
+  font-weight: 500;
+  text-decoration: line-through;
+}
