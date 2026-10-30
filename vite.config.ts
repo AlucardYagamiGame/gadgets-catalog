@@ -143,13 +143,17 @@ const devApi = (): Plugin => ({
   },
 });
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react(), preloadPageChunks(), devApi()],
   base: '/',
   server: {
     open: true,
   },
   css: {
+    modules: {
+      generateScopedName:
+        mode === 'development' ? '[name]__[local]' : '[hash:base64:6]',
+    },
     preprocessorOptions: {
       scss: {
         api: 'modern-compiler',
@@ -161,4 +165,4 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-});
+}));

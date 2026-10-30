@@ -1,6 +1,6 @@
 # Nice Gadgets
 
-[**Live demo**](https://gadgets-catalog-swart.vercel.app) · [Documentation](./docs)
+[**Live demo**](https://gadgets-catalog-swart.vercel.app) · [Documentation](./docs) · [**Developer**](https://gadgets-catalog-swart.vercel.app/developer)
 
 ![Preview of the catalog in the dark theme](./docs/screenshots/preview1.gif)
 
