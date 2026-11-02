@@ -71,15 +71,15 @@ All environment variables are optional. With an empty `.env` the app uses the bu
 
 ## Roadmap
 
-- Order history for signed-in users
-- Password reset and Google sign in
-- Tests for filters and hooks, and end-to-end tests for checkout
-- Page titles and descriptions per route
-- A page about the developer
+- [ ] Order history for signed-in users
+- [ ] Password reset and Google sign in
+- [ ] Tests for filters and hooks, and end-to-end tests for checkout
+- [ ] Page titles and descriptions per route
+- [ ] A page about the developer
 
 ## Origin
 
-This project started as a team project during my Mate Academy course ([fe-jul26-cherry](https://github.com/fe-jul26-cherry/product_catalog), 4 people), where I was the team lead. This repository is my personal portfolio continuation.
+This project started as a collaborative effort with a team of four ([fe-jul26-cherry](https://github.com/fe-jul26-cherry/product_catalog)), where I was the team lead. This repository is my personal continuation of the project.
 
 ### My contribution
 
